@@ -81,7 +81,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Created By:</strong>
-                                        {{ Auth::user()->name }}
+                                        {{ $user[0]->user_name }}
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
