@@ -2,7 +2,7 @@
 @section('title', 'Company List')
 
 @section('dt-css')
-<link rel="stylesheet" href="{{ asset('assets/vendor/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('assets/vendor/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
 @endsection
 
 @section('content')
@@ -136,12 +136,12 @@
 @endsection
 
 @section('dt-js')
-<script src="{{ asset('assets/vendor/datatables/media/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/datatables.net-buttons-bs/js/buttons.bootstrap.min.js') }}"></script>
+<script src="{{ secure_asset('assets/vendor/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ secure_asset('assets/vendor/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+<script src="{{ secure_asset('assets/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+<script src="{{ secure_asset('assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+<script src="{{ secure_asset('assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ secure_asset('assets/vendor/datatables.net-buttons-bs/js/buttons.bootstrap.min.js') }}"></script>
 <script>
     function form_submit() {
             document.getElementById("companyForm").submit();
