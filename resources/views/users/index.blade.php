@@ -168,8 +168,8 @@
                     <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                         <div class="row">
                             <table id="user_list"
-                                class="table table-striped table-bordered table-hover dataTable no-footer" width="100%"
-                                role="grid" style="width: 100%;">
+                                class="table table-striped table-bordered table-hover dataTable no-footer"
+                                cellspacing="0" width="100%" role="grid" style="width: 100%;">
                                 <thead>
                                     <tr>
                                         <th><b>ID</b></th>
@@ -212,6 +212,7 @@
                     $('#user_list').DataTable({
                         processing: true,
                         serverSide: true,
+                        scrollX: true,
                         ajax: '{!! route('users.index') !!}',
                         columns: [
                             {data: 'id', name:'id', 'visible': false},

@@ -174,6 +174,7 @@
                     $('#schedule_list').DataTable({
                         processing: true,
                         serverSide: true,
+                        scrollX: true,
                         ajax: '{!! route('schedules.index') !!}',
                         columns: [
                             {data: 'id', name:'id', 'visible': false},

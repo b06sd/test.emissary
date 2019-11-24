@@ -8,9 +8,10 @@
     <ul class="nav nav-second-level">
         <li><a href="{{ route('users.index') }}">User Management</a></li>
     </ul>
+    {{--
     <ul class="nav nav-second-level">
         <li><a href="#">Role Management</a></li>
-    </ul>
+    </ul> --}}
     <ul class="nav nav-second-level">
         <li><a href="{{ route('users.allAppUser') }}">Create App User</a></li>
     </ul>

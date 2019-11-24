@@ -4,6 +4,27 @@
         <span class="text-primary">EMISSARY</span>
     </div>
 
+    <div class="mobile-menu">
+        <button type="button" class="navbar-toggle mobile-menu-toggle collapsed" data-toggle="collapse"
+            data-target="#mobile-collapse" aria-expanded="false">
+            <i class="fa fa-chevron-down"></i>
+        </button>
+        <div class="mobile-navbar collapse" id="mobile-collapse" aria-expanded="false" style="height: 0px;">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <div class="navbar-right">
         <ul class="nav navbar-nav no-borders">
             <li class="dropdown">

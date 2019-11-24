@@ -152,6 +152,7 @@
                     $('#company_list').DataTable({
                         processing: true,
                         serverSide: true,
+                        scrollX: true,
                         ajax: '{!! route('companies.index') !!}',
                         columns: [
                             {data: 'id', name:'id', 'visible': false},

@@ -27,7 +27,6 @@ class ScheduleController extends Controller
             $schedule = DB::table('schedules')
             ->join('units', 'schedules.unit_id', '=', 'units.id')
             ->where('unit_id', '=', Auth::user()->unit_id)
-            ->where('user_id', '=', Auth::user()->id)
             ->select('schedules.*', 'units.name')
             ->get();
 
