@@ -15,15 +15,15 @@
     <!--<link rel="shortcut icon" type="image/ico" href="favicon.ico" />-->
 
     <!-- Vendor styles -->
-    <link rel="stylesheet" href="{{  asset('assets/vendor/fontawesome/css/font-awesome.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendor/metisMenu/dist/metisMenu.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendor/animate.css/animate.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.css') }}" />
+    <link rel="stylesheet" href="{{ secure_asset('assets/vendor/fontawesome/css/font-awesome.css') }}" />
+    <link rel="stylesheet" href="{{ secure_asset('assets/vendor/metisMenu/dist/metisMenu.css') }}" />
+    <link rel="stylesheet" href="{{ secure_asset('assets/vendor/animate.css/animate.css') }}" />
+    <link rel="stylesheet" href="{{ secure_asset('assets/vendor/bootstrap/dist/css/bootstrap.css') }}" />
 
     <!-- App styles -->
-    <link rel="stylesheet" href="{{ asset('assets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/fonts/pe-icon-7-stroke/css/helper.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/styles/style.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('assets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css') }}" />
+    <link rel="stylesheet" href="{{ secure_asset('assets/fonts/pe-icon-7-stroke/css/helper.css') }}" />
+    <link rel="stylesheet" href="{{ secure_asset('assets/styles/style.css') }}">
 
 </head>
 
@@ -51,16 +51,16 @@
     @yield('content')
 
     <!-- Vendor scripts -->
-    <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/jquery-ui/jquery-ui.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/slimScroll/jquery.slimscroll.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/metisMenu/dist/metisMenu.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/iCheck/icheck.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/sparkline/index.js') }}"></script>
+    <script src="{{ secure_asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ secure_asset('assets/vendor/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ secure_asset('assets/vendor/slimScroll/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ secure_asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ secure_asset('assets/vendor/metisMenu/dist/metisMenu.min.js') }}"></script>
+    <script src="{{ secure_asset('assets/vendor/iCheck/icheck.min.js') }}"></script>
+    <script src="{{ secure_asset('assets/vendor/sparkline/index.js') }}"></script>
 
     <!-- App scripts -->
-    <script src="{{ asset('assets/scripts/homer.js') }}"></script>
+    <script src="{{ secure_asset('assets/scripts/homer.js') }}"></script>
 
 </body>
 
