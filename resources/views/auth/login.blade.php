@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="text-center m-b-md">
-                <img class="centered" src="{{ asset('assets/images/lirs_logo.png') }}"
+                <img class="centered" src="{{ secure_asset('assets/images/lirs_logo.png') }}"
                     style="width:120px; height:114px;">
                 <h3>{{ __('PLEASE LOGIN TO EMISSARY') }}</h3>
             </div>
