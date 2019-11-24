@@ -26,7 +26,7 @@ class ScheduleController extends Controller
         {
             $schedule = DB::table('schedules')
             ->join('units', 'schedules.unit_id', '=', 'units.id')
-            ->where('unit_id', '=', Auth::user()->unit_id)
+            ->where('schedules.unit_id', '=', Auth::user()->unit_id)
             ->select('schedules.*', 'units.name')
             ->get();
 
@@ -91,9 +91,11 @@ class ScheduleController extends Controller
      */
     public function show($id)
     {
-        $schedule = Schedule::where('unit_id', Auth::user()->unit_id)
-        ->where('user_id', Auth::user()->id)
-        ->where('id', $id)
+        $schedule = DB::table('schedules')
+        ->join('units', 'schedules.unit_id', '=', 'units.id')
+        ->where('schedules.unit_id', '=', Auth::user()->unit_id)
+        ->where('schedules.id', $id)
+        ->select('schedules.*', 'units.name AS unit_name')
         ->get();
         
         return view('schedules.show', compact('schedule'));

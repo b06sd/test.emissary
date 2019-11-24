@@ -1,7 +1,7 @@
 <aside id="menu">
     <div id="navigation">
         <div class="profile-picture">
-            <a href="index.html">
+            <a href="#">
                 <img src="{{ asset('assets/images/profile.jpg') }}" class="img-circle m-b" alt="logo">
             </a>
 
