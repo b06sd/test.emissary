@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\CreateUsersRequest;
 
+use App\RoleUser;
 use App\Unit;
+use App\Role;
 use App\User;
 
 class UsersController extends Controller
@@ -30,8 +32,7 @@ class UsersController extends Controller
         return Datatables::of($users)
         ->addColumn('action', function($cb_user){
             return
-            '<a href="'.route("users.edit", $cb_user->id).'" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm" id="edit-user"><i class="fa fa-plus"></i> Edit User</a>&nbsp;'.
-            '<a href="" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm readuser"><i class="fa fa-ban"></i> Deactivate User</a>&nbsp;';            
+            '<a href="'.route("users.edit", $cb_user->id).'" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm" id="edit-user"><i class="fa fa-plus"></i> Edit User</a>&nbsp;';            
         })
         ->rawColumns(['action'])
         ->addIndexColumn()
@@ -96,9 +97,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $roles = Role::all();
+        $units = Unit::all();
+        return view('users.edit', compact('user', 'roles', 'units'));
     }
 
     /**
@@ -108,9 +111,30 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'user_type' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'unit_id' => 'required',
+            'role_id' => 'required'         
+        ]);   
+        
+        $user->update($request->all());
+
+        return redirect()->route('users.index')
+        ->with('success','User updated successfully');        
+    }
+
+    public function deactivate(Request $request, User $user)
+    {
+        DB::table('users')
+            ->where('id', $user)
+            ->update(['status' => 'Deactivate']);
+
+            return redirect()->route('users.index')
+            ->with('success','User deactivated successfully');                  
     }
 
     /**
@@ -126,6 +150,8 @@ class UsersController extends Controller
 
     public function allAppUsers()
     {
+        $roles = DB::select("select * from roles where name NOT IN('superadministrator')", [1]);
+        $users = DB::select("select * from users where status = 'Not Active'", [1]);        
         if(request()->ajax())
         {         
         $appUser = DB::table('not_exsiting')
@@ -140,6 +166,34 @@ class UsersController extends Controller
         ->make(true);
         }    
         
-    return view('users.appUser');
+    return view('users.appUser', compact('roles', 'users'));
     }
+
+    public function addAppUser(Request $request)
+    {
+        
+        $appUsers = DB::table('not_exsiting')
+        ->where('id', '=', $request->user_id)
+        ->select('id')
+        ->get();
+        
+        if (!empty($appUsers) )
+        {
+            $this->validate($request,[
+                'role_id' => 'required',
+                'user_id' => 'required',
+                'user_type' => 'required'
+            ]);
+    
+            $input = [
+                'role_id' => $request->role_id,
+                'user_id' => $request->user_id,
+                'user_type' => $request->user_type
+            ];
+            RoleUser::create($input);
+            User::where('id', $request->user_id)->update(array('status' => 'Active'));
+            return redirect()->route('users.allAppUser')->with('success', 'App User created successfully.');
+        } 
+        return redirect()->route('users.allAppUser')->with('warning', 'App User already exist.');
+    }    
 }

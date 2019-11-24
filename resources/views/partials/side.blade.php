@@ -7,16 +7,6 @@
 
             <div class="stats-label text-color">
                 <span class="font-extra-bold font-uppercase">{{ Auth::user()->name }}</span>
-
-                <div class="dropdown">
-                    <ul class="dropdown-menu animated flipInX m-t-xs">
-                        <li><a href="contacts.html">Contacts</a></li>
-                        <li><a href="profile.html">Profile</a></li>
-                        <li><a href="analytics.html">Analytics</a></li>
-                        <li class="divider"></li>
-                        <li><a href="login.html">Logout</a></li>
-                    </ul>
-                </div>
             </div>
         </div>
 

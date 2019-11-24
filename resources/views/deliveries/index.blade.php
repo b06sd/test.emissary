@@ -93,6 +93,7 @@
                     $('#schedule_list').DataTable({
                         processing: true,
                         serverSide: true,
+                        scrollX: true,
                         ajax: '{!! route('deliveries.index') !!}',
                         columns: [
                             {data: 'id', name:'id', 'visible': false},

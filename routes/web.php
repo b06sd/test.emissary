@@ -23,6 +23,7 @@ Route::get('/companies/{company}/createSchedule', 'CompanyController@createSched
 Route::post('storeSchedule', 'CompanyController@storeSchedule')->name('companies.storeSchedule');
 
 Route::get('allAppUser', 'UsersController@allAppUsers')->name('users.allAppUser');
+Route::post('addAppUser', 'UsersController@addAppUser')->name('users.addAppUser');
 
 Route::resource('users', 'UsersController');
 
