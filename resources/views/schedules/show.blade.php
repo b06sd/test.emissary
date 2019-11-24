@@ -75,7 +75,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Unit:</strong>
-                                        {{ $schedule[0]->unit->name }}
+                                        {{ $schedule[0]->unit_name }}
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
