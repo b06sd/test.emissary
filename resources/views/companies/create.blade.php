@@ -81,8 +81,11 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12 text-right"><b
                                                 class="text-danger">*</b> Scheduled Item</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" placeholder="Scheduled Item" required value=""
-                                                class="form-control" name="item" />
+                                            <select name="item" id="item" class="form-control">
+                                                <option value="">Select Title</option>
+                                                <option value="Letter">Letter</option>
+                                                <option value="Parcel">Parcel</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
